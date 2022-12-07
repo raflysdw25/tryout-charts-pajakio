@@ -1,5 +1,7 @@
 <template>
-  <Bar :data="data" :options="options" />
+  <div class="bar-chart-container">
+    <Bar :data="data" :options="options" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -10,20 +12,34 @@ import {
   Legend,
   BarElement,
   CategoryScale,
-  LinearScale
-} from 'chart.js'
-import { Bar } from 'vue-chartjs'
-import * as chartConfig from './chartConfig.js'
+  LinearScale,
+} from 'chart.js';
+import { Bar } from 'vue-chartjs';
+import * as chartConfig from './chartConfig.js';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export default {
   name: 'App',
   components: {
-    Bar
+    Bar,
   },
   data() {
-    return chartConfig
-  }
-}
+    return chartConfig;
+  },
+};
 </script>
+
+<style>
+.bar-chart-container {
+  width: 100%;
+  height: 440px;
+}
+</style>

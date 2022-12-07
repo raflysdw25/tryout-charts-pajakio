@@ -1,22 +1,22 @@
 export const data = {
   labels: [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
     'Mei',
-    'Jun',
-    'Jul',
-    'Ags',
-    'Sep',
-    'Okt',
-    'Nov',
-    'Dec',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember',
   ],
   datasets: [
     {
-      label: 'Jumlah Transaksi',
-      backgroundColor: '#F7BA1E',
+      label: 'KOP',
+      backgroundColor: '#165DFF',
       data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
     },
     {
@@ -25,14 +25,18 @@ export const data = {
       data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
     },
     {
-      label: 'KOP',
-      backgroundColor: '#165DFF',
+      label: 'Jumlah Transaksi',
+      backgroundColor: '#F7BA1E',
       data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
     },
   ],
 };
 
 export const options = {
+  interaction: {
+    intersect: false,
+    mode: 'index',
+  },
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -46,7 +50,30 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Dashboard e-Bupot Unifikasi',
+    },
+    tooltip: {
+      backgroundColor: '#FFFFFF',
+      titleColor: '#000',
+      bodyColor: '#000',
+      opacity: 0.8,
+    },
+  },
+  scale: {
+    x: {
+      stacked: true,
+    },
+    y: {
+      stacked: true,
+      min: 0,
+      max: 100,
+      ticks: {
+        stepSize: 10,
+        // Include a dollar sign in the ticks
+        callback: (value, index, values) => {
+          return value + 'K';
+        },
+      },
     },
   },
 };
