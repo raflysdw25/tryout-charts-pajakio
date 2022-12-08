@@ -1,17 +1,17 @@
 export const data = {
   labels: [
-    'Januari',
-    'Februari',
-    'Maret',
-    'April',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
     'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember',
+    'Jun',
+    'Jul',
+    'Ags',
+    'Sep',
+    'Okt',
+    'Nov',
+    'Des',
   ],
   datasets: [
     {
@@ -39,6 +39,7 @@ export const options = {
   },
   responsive: true,
   maintainAspectRatio: false,
+
   plugins: {
     legend: {
       position: 'bottom',
@@ -53,10 +54,31 @@ export const options = {
       text: 'Dashboard e-Bupot Unifikasi',
     },
     tooltip: {
+      enabled: true,
       backgroundColor: '#FFFFFF',
       titleColor: '#000',
       bodyColor: '#000',
       opacity: 0.8,
+      callbacks: {
+        title: function (context) {
+          // let title = Object.keys(context);
+          let newLabels = [
+            'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember',
+          ];
+          return newLabels[context[0].dataIndex];
+        },
+      },
     },
   },
   scale: {
