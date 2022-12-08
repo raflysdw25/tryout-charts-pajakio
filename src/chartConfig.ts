@@ -84,6 +84,7 @@ export const options = {
   scale: {
     x: {
       stacked: true,
+      display: true,
     },
     y: {
       stacked: true,
@@ -91,10 +92,6 @@ export const options = {
       max: 100,
       ticks: {
         stepSize: 10,
-        // Include a dollar sign in the ticks
-        callback: (value, index, values) => {
-          return value + 'K';
-        },
       },
     },
   },
