@@ -17,7 +17,7 @@ export const data = {
     {
       label: 'KOP',
       backgroundColor: '#165DFF',
-      data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+      data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11], //353
     },
     {
       label: 'Nominal Transaksi',
@@ -35,7 +35,7 @@ export const data = {
 export const options = {
   interaction: {
     intersect: false,
-    mode: 'index',
+    // mode: 'index',
   },
   responsive: true,
   maintainAspectRatio: false,
@@ -77,6 +77,11 @@ export const options = {
             'Desember',
           ];
           return newLabels[context[0].dataIndex];
+        },
+        label: function (context) {
+          return `${context.dataset.label} (${Math.floor(
+            (context.raw / 353) * 100
+          )}%)`;
         },
       },
     },
