@@ -79,8 +79,12 @@ export const options = {
           return newLabels[context[0].dataIndex];
         },
         label: function (context) {
+          const totalData = context.dataset.data.reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            0
+          );
           return `${context.dataset.label} (${Math.floor(
-            (context.raw / 353) * 100
+            (context.raw / totalData) * 100
           )}%)`;
         },
       },
