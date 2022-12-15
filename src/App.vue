@@ -40,6 +40,7 @@ export default {
 <style>
 .bar-chart-container {
   width: 100%;
+  max-width: 100vw;
   height: 440px;
 }
 </style>
